@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MdShoppingCart, MdManageAccounts, MdHome } from "react-icons/md";
+import { MdShoppingCart, MdManageAccounts, MdHome, MdChat, MdFavoriteBorder } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
 import data from "../../data.json";
 
@@ -55,6 +55,14 @@ const Navbar = ({ setFilteredProducts, cartCount }) => {
                                 {cartCount > 99 ? '99+' : cartCount}
                             </span>
                         )}
+                    </Link>
+
+                    <Link to="/wishlist" className="text-white" title="Wishlist">
+                        <MdFavoriteBorder size={30} />
+                    </Link>
+
+                    <Link to="/chat" className="text-white" title="Messages">
+                        <MdChat size={30} />
                     </Link>
 
                     <Link to="/account" className="text-white" title="Account">

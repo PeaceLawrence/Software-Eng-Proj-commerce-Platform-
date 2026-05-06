@@ -19,6 +19,7 @@ const ProductList = () => {
   const [dbProducts, setDbProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+  const [course, setCourse] = useState("All");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [sort, setSort] = useState("default");
@@ -36,6 +37,10 @@ const ProductList = () => {
     ["All", ...Array.from(new Set(allProducts.map(p => p.category)))]
   ), [allProducts]);
 
+  const allCourses = useMemo(() => (
+    ["All", ...Array.from(new Set(allProducts.map(p => p.course).filter(Boolean))).sort()]
+  ), [allProducts]);
+
   const filtered = useMemo(() => {
     let list = [...allProducts];
 
@@ -49,6 +54,7 @@ const ProductList = () => {
     }
 
     if (category !== "All") list = list.filter(p => p.category === category);
+    if (course !== "All") list = list.filter(p => p.course === course);
     if (minPrice !== "") list = list.filter(p => p.price >= parseFloat(minPrice));
     if (maxPrice !== "") list = list.filter(p => p.price <= parseFloat(maxPrice));
 
@@ -58,13 +64,13 @@ const ProductList = () => {
     else if (sort === "name-desc") list.sort((a, b) => b.title.localeCompare(a.title));
 
     return list;
-  }, [allProducts, search, category, minPrice, maxPrice, sort]);
+  }, [allProducts, search, category, course, minPrice, maxPrice, sort]);
 
   const clearFilters = () => {
-    setSearch(""); setCategory("All"); setMinPrice(""); setMaxPrice(""); setSort("default");
+    setSearch(""); setCategory("All"); setCourse("All"); setMinPrice(""); setMaxPrice(""); setSort("default");
   };
 
-  const hasFilters = search || category !== "All" || minPrice || maxPrice || sort !== "default";
+  const hasFilters = search || category !== "All" || course !== "All" || minPrice || maxPrice || sort !== "default";
 
   return (
     <div className="container py-4">
@@ -82,12 +88,18 @@ const ProductList = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label className="form-label small fw-semibold mb-1">Min Price ($)</label>
+            <label className="form-label small fw-semibold mb-1">Course</label>
+            <select className="form-select" value={course} onChange={e => setCourse(e.target.value)}>
+              {allCourses.map(c => <option key={c}>{c}</option>)}
+            </select>
+          </div>
+          <div className="col-md-1">
+            <label className="form-label small fw-semibold mb-1">Min $</label>
             <input className="form-control" type="number" min="0" placeholder="0"
               value={minPrice} onChange={e => setMinPrice(e.target.value)} />
           </div>
-          <div className="col-md-2">
-            <label className="form-label small fw-semibold mb-1">Max Price ($)</label>
+          <div className="col-md-1">
+            <label className="form-label small fw-semibold mb-1">Max $</label>
             <input className="form-control" type="number" min="0" placeholder="Any"
               value={maxPrice} onChange={e => setMaxPrice(e.target.value)} />
           </div>

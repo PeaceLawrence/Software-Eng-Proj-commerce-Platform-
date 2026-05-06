@@ -27,6 +27,10 @@ import SellerMode from './Page/SellerMode';
 import Checkout from './Page/Checkout';
 import Orders from './Page/Orders';
 import Payments from './Page/Payments';
+import RentalCheckout from './Page/RentalCheckout';
+import Rentals from './Page/Rentals';
+import Chat from './Page/Chat';
+import Wishlist from './Page/Wishlist';
 
 const Layout = () => {
   const [user, setUser] = useState(null);
@@ -35,6 +39,8 @@ const Layout = () => {
   const [cart, setCart] = useState([]);
   const [orders, setOrders] = useState([]);
   const [savedCards, setSavedCards] = useState([]);
+  const [rentals, setRentals] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(data.products);
   const [toast, setToast] = useState({ show: false, message: '' });
   const toastTimer = useRef(null);
@@ -52,6 +58,22 @@ const Layout = () => {
 
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter(item => item.id !== productId));
+  };
+
+  const addRental = (rental) => {
+    setRentals(prev => [rental, ...prev]);
+  };
+
+  const cancelOrder = (orderId) => {
+    setOrders(prev => prev.map(o => o.id === orderId ? { ...o, status: "cancelled" } : o));
+  };
+
+  const toggleWishlist = (product) => {
+    setWishlist(prev =>
+      prev.some(p => p.id === product.id)
+        ? prev.filter(p => p.id !== product.id)
+        : [...prev, product]
+    );
   };
 
   const placeOrder = (orderItems, total, customerInfo) => {
@@ -78,7 +100,7 @@ const Layout = () => {
       {!isAuthPage && <Navbar setFilteredProducts={setFilteredProducts} cartCount={cart.length} />}
 
       <main>
-        <Outlet context={{ filteredProducts, cart, addToCart, removeFromCart, orders, placeOrder, savedCards, setSavedCards, user, setUser }} />
+        <Outlet context={{ filteredProducts, cart, addToCart, removeFromCart, orders, placeOrder, cancelOrder, savedCards, setSavedCards, user, setUser, rentals, addRental, wishlist, toggleWishlist }} />
       </main>
 
       {!isAuthPage && <AIButton />}
@@ -104,6 +126,10 @@ const router = createBrowserRouter([
       { path: "/checkout", element: <Checkout />, errorElement: <ErrorPage /> },
       { path: "/orders", element: <Orders />, errorElement: <ErrorPage /> },
       { path: "/payments", element: <Payments />, errorElement: <ErrorPage /> },
+      { path: "/rental-checkout", element: <RentalCheckout />, errorElement: <ErrorPage /> },
+      { path: "/rentals", element: <Rentals />, errorElement: <ErrorPage /> },
+      { path: "/chat", element: <Chat />, errorElement: <ErrorPage /> },
+      { path: "/wishlist", element: <Wishlist />, errorElement: <ErrorPage /> },
     ],
   },
 ]);

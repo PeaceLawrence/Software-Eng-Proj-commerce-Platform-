@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { AiOutlineShop, AiOutlineLogout, AiOutlineHistory, AiOutlineCreditCard } from "react-icons/ai";
+import { AiOutlineShop, AiOutlineLogout, AiOutlineHistory, AiOutlineCreditCard, AiOutlineMessage, AiOutlineHeart } from "react-icons/ai";
+import { MdLibraryBooks } from "react-icons/md";
 import { MdManageAccounts, MdEdit, MdCheck, MdClose } from "react-icons/md";
 import { updateAccount } from "../accounts";
 
@@ -166,6 +167,24 @@ const Account = () => {
                             <button className="btn btn-secondary w-100 shadow-sm border py-3" onClick={() => navigate("/payments")}>
                                 <AiOutlineCreditCard size={25} className="mb-2" />
                                 <div className="fw-bold small">Payments</div>
+                            </button>
+                        </div>
+                        <div className="col-6">
+                            <button className="btn btn-secondary w-100 shadow-sm border py-3" onClick={() => navigate("/rentals")}>
+                                <MdLibraryBooks size={25} className="mb-2" />
+                                <div className="fw-bold small">Rentals</div>
+                            </button>
+                        </div>
+                        <div className="col-6">
+                            <button className="btn btn-secondary w-100 shadow-sm border py-3" onClick={() => navigate("/chat")}>
+                                <AiOutlineMessage size={25} className="mb-2" />
+                                <div className="fw-bold small">Messages</div>
+                            </button>
+                        </div>
+                        <div className="col-6">
+                            <button className="btn btn-secondary w-100 shadow-sm border py-3" onClick={() => navigate("/wishlist")}>
+                                <AiOutlineHeart size={25} className="mb-2" />
+                                <div className="fw-bold small">Wishlist</div>
                             </button>
                         </div>
                     </div>
