@@ -16,7 +16,7 @@ const AIChatPage = () => {
         setLoading(true);
 
         try {
-            const response = await fetch("http://localhost:5000/api/ai/chat", {
+            const response = await fetch("http://localhost:5001/api/ai/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: input })
@@ -36,52 +36,65 @@ const AIChatPage = () => {
     };
 
     return (
-        <div className="d-flex flex-column vh-100 bg-light">
+        <div className="d-flex flex-column" style={{ minHeight: "calc(100vh - 56px)" }}>
             <div className="flex-grow-1 overflow-auto p-4" style={{ paddingBottom: '100px' }}>
                 <div className="container" style={{ maxWidth: '700px' }}>
                     {messages.map((msg, index) => (
                         <div key={index} className={`d-flex mb-4 ${msg.sender === "user" ? "justify-content-end" : ""}`}>
                             <div
-                                className={`shadow-sm p-3 rounded-4 border ${msg.sender === "user" ? "bg-primary text-white" : "bg-white"}`}
-                                style={{ maxWidth: '80%' }}
+                                style={{
+                                    maxWidth: '80%',
+                                    padding: '12px 16px',
+                                    borderRadius: '18px',
+                                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                                    background: msg.sender === "user" ? "#E87722" : "#f5f5f5",
+                                    color: '#111111',
+                                }}
                             >
                                 {msg.sender === "ai" && (
-                                    <p className="mb-1 fw-semibold text-primary small">CampusCart AI</p>
+                                    <p style={{ color: "#E87722", fontWeight: 700, fontSize: '0.8rem', marginBottom: '4px' }}>
+                                        CampusCart AI
+                                    </p>
                                 )}
-                                <p className="mb-0">{msg.text}</p>
+                                <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: msg.sender === "user" ? "#fff" : "#111111" }}>
+                                    {msg.text}
+                                </p>
                             </div>
                         </div>
                     ))}
                     {loading && (
                         <div className="d-flex mb-4">
-                            <div className="bg-white shadow-sm p-3 rounded-4 border">
-                                <p className="mb-1 fw-semibold text-primary small">CampusCart AI</p>
-                                <p className="mb-0 text-muted">Typing...</p>
+                            <div style={{ background: "#f5f5f5", padding: '12px 16px', borderRadius: '18px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>
+                                <p style={{ color: "#E87722", fontWeight: 700, fontSize: '0.8rem', marginBottom: '4px' }}>CampusCart AI</p>
+                                <p style={{ margin: 0, color: '#555', fontSize: '0.95rem' }}>Typing…</p>
                             </div>
                         </div>
                     )}
                 </div>
             </div>
 
-            <div className="fixed-bottom bg-white border-top p-3">
+            <div className="fixed-bottom border-top p-3" style={{ background: '#1a1a1a' }}>
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-md-8 col-lg-6">
-                            <div className="input-group shadow-sm" style={{ borderRadius: '50px', overflow: 'hidden', border: '1px solid #dee2e6' }}>
+                            <div style={{ display: 'flex', borderRadius: '50px', overflow: 'hidden', border: '2px solid #E87722', background: '#fff' }}>
                                 <input
                                     type="text"
-                                    className="form-control border-0 p-3 ps-4 shadow-none"
+                                    style={{ flex: 1, border: 'none', outline: 'none', padding: '12px 20px', fontSize: '0.95rem', color: '#111', background: 'transparent' }}
                                     placeholder="Message CampusCart AI..."
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyDown={handleKeyDown}
                                 />
-                                <button className="btn btn-primary px-4 fw-bold" onClick={sendMessage}>
+                                <button
+                                    style={{ background: '#E87722', border: 'none', color: '#fff', fontWeight: 700, padding: '0 24px', cursor: 'pointer' }}
+                                    onClick={sendMessage}
+                                >
                                     Send
                                 </button>
                             </div>
                             <div className="text-center mt-2">
-                                <small className="text-muted" style={{ fontSize: '0.7rem' }}>
+                                <small style={{ fontSize: '0.7rem', color: '#888' }}>
                                     AI can make mistakes. Verify important course requirements.
                                 </small>
                             </div>

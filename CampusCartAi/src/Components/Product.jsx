@@ -8,11 +8,15 @@ const Product = ({ product }) => {
 
     return (
         <div className="card h-100 shadow-sm border-0">
-            <img 
-                src={product.thumbnail} 
-                className="card-img-top" 
-                alt={product.title} 
-                style={{ height: "200px", objectFit: "cover" }} 
+            <img
+                src={product.thumbnail}
+                className="card-img-top"
+                alt={product.title}
+                style={{ height: "200px", objectFit: "cover" }}
+                onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=300&fit=crop&q=80";
+                }}
             />
             
             <div className="card-body">
@@ -32,12 +36,9 @@ const Product = ({ product }) => {
             </ul>
 
             <div className="card-body d-flex gap-2">
-                <button 
-                    className='btn btn-primary flex-grow-1 fw-bold' 
-                    onClick={() => {
-                        addToCart(product);
-                        alert(`${product.title} has been added to your cart!`);
-                    }}
+                <button
+                    className='btn btn-primary flex-grow-1 fw-bold'
+                    onClick={() => addToCart(product)}
                 >
                     Add to Cart 
                 </button>

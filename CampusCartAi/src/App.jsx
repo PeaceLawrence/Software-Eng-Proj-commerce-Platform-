@@ -1,62 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { 
-  createBrowserRouter, 
-  RouterProvider, 
-  Outlet, 
-  Navigate, 
-  useLocation 
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Navigate,
+  useLocation
 } from 'react-router-dom';
 import './App.css';
-
 
 import { data } from 'react-router-dom';
 
 // Components & Pages
 import Navbar from './Components/Navbar';
 import AIButton from './Components/AIButton';
+import ErrorPage from './Components/ErrorPage';
+import Toast from './Components/Toast';
 import ProductList from './Page/ProductList';
 import Cart from './Page/Cart';
 import Search from './Components/Search';
-import AI from './Page/AI'; 
+import AI from './Page/AI';
 import AccountSetting from './Page/AccountSetting';
 import LogIn from './Page/LogIn';
 import CreateAccount from './Page/CreateAccount';
+import SellerMode from './Page/SellerMode';
+import Checkout from './Page/Checkout';
+import Orders from './Page/Orders';
+import Payments from './Page/Payments';
 
 const Layout = () => {
-  const [isLoggedIn] = useState(true); 
+  const [user, setUser] = useState(null);
   const location = useLocation();
-  
-  // States
-  const [cart, setCart] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState(data.products);
 
-  // 2. Add Logic: Add item to list
-  const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
+  const [cart, setCart] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [savedCards, setSavedCards] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(data.products);
+  const [toast, setToast] = useState({ show: false, message: '' });
+  const toastTimer = useRef(null);
+
+  const showToast = (message) => {
+    clearTimeout(toastTimer.current);
+    setToast({ show: true, message });
+    toastTimer.current = setTimeout(() => setToast({ show: false, message: '' }), 3000);
   };
 
-  // 3. Add Logic: Remove item from list by ID
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+    showToast(`${product.title} added to cart`);
+  };
+
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter(item => item.id !== productId));
   };
 
-  const isLoginPage = location.pathname === "/login" || location.pathname === "/register";
+  const placeOrder = (orderItems, total, customerInfo) => {
+    const newOrder = {
+      id: `ORD-${Date.now()}`,
+      date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
+      items: orderItems.map(item => item.title),
+      total,
+      status: "processing",
+      email: customerInfo.email,
+    };
+    setOrders(prev => [newOrder, ...prev]);
+    setCart([]);
+  };
 
-  if (!isLoggedIn && !isLoginPage) {
-    return <Navigate to="/login" replace />;
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+
+  if (!user && !isAuthPage) {
+    return <Navigate to="/register" replace />;
   }
 
   return (
     <>
-      {!isLoginPage && <Navbar setFilteredProducts={setFilteredProducts} />}
+      {!isAuthPage && <Navbar setFilteredProducts={setFilteredProducts} cartCount={cart.length} />}
 
       <main>
-        {/* 4. Pack the new removeFromCart function into the context suitcase */}
-        <Outlet context={{ filteredProducts, cart, addToCart, removeFromCart }} /> 
+        <Outlet context={{ filteredProducts, cart, addToCart, removeFromCart, orders, placeOrder, savedCards, setSavedCards, user, setUser }} />
       </main>
 
-      {!isLoginPage && <AIButton />}
+      {!isAuthPage && <AIButton />}
+      <Toast show={toast.show} message={toast.message} />
     </>
   );
 };
@@ -65,14 +91,19 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <ProductList /> },
-      { path: "/login", element: <LogIn /> },
-      { path: "/cart", element: <Cart /> },
-      { path: "/search", element: <Search /> },
-      { path: "/ai", element: <AI /> },
-      { path: "/account", element: <AccountSetting /> },
-      { path: "/register", element: <CreateAccount /> },
+      { path: "/", element: <ProductList />, errorElement: <ErrorPage /> },
+      { path: "/login", element: <LogIn />, errorElement: <ErrorPage /> },
+      { path: "/cart", element: <Cart />, errorElement: <ErrorPage /> },
+      { path: "/search", element: <Search />, errorElement: <ErrorPage /> },
+      { path: "/ai", element: <AI />, errorElement: <ErrorPage /> },
+      { path: "/account", element: <AccountSetting />, errorElement: <ErrorPage /> },
+      { path: "/register", element: <CreateAccount />, errorElement: <ErrorPage /> },
+      { path: "/seller", element: <SellerMode />, errorElement: <ErrorPage /> },
+      { path: "/checkout", element: <Checkout />, errorElement: <ErrorPage /> },
+      { path: "/orders", element: <Orders />, errorElement: <ErrorPage /> },
+      { path: "/payments", element: <Payments />, errorElement: <ErrorPage /> },
     ],
   },
 ]);

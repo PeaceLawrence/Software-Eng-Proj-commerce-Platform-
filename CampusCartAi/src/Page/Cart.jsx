@@ -1,9 +1,10 @@
 import React from "react";
-import { useOutletContext } from "react-router-dom";
-import { MdDelete } from "react-icons/md"; 
+import { useOutletContext, useNavigate } from "react-router-dom";
+import { MdDelete } from "react-icons/md";
 
 const Cart = () => {
   const { cart, removeFromCart } = useOutletContext();
+  const navigate = useNavigate();
 
   return (
     <div className="container mt-5">
@@ -42,8 +43,8 @@ const Cart = () => {
           ))}
 
           <div className="mt-4 p-3 bg-light rounded text-end">
-            <h4>Total: ${cart.reduce((total, item) => total + item.price, 0)}</h4>
-            <button className="btn btn-success px-4">Checkout</button>
+            <h4>Total: ${cart.reduce((total, item) => total + item.price, 0).toFixed(2)}</h4>
+            <button className="btn btn-success px-4" onClick={() => navigate("/checkout")}>Checkout</button>
           </div>
         </div>
       )}

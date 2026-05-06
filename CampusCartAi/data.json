@@ -2,66 +2,318 @@
   "products": [
     {
       "id": 1,
-      "title": "iPhone 9",
-      "description": "An apple mobile which is nothing like apple",
-      "price": 549,
-      "category": "cat",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
-      "course": "COSC 455"
+      "title": "Calculus: Early Transcendentals (10th Ed.)",
+      "description": "Comprehensive calculus textbook covering limits, derivatives, integrals, and series. Required for MATH 273.",
+      "price": 89.99,
+      "category": "Textbooks",
+      "course": "MATH 273",
+      "thumbnail": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=300&fit=crop&q=80"
     },
     {
       "id": 2,
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-      "course": "COSC 455",
-      "category": "smartphones"
+      "title": "Introduction to Computer Science (3rd Ed.)",
+      "description": "Covers programming fundamentals, algorithms, and problem-solving using Python. Perfect for COSC 175 students.",
+      "price": 74.99,
+      "category": "Textbooks",
+      "course": "COSC 175",
+      "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop&q=80"
     },
     {
       "id": 3,
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "course": "COSC 455"
+      "title": "Organic Chemistry (Morrison & Boyd, 7th Ed.)",
+      "description": "In-depth organic chemistry textbook covering reactions, mechanisms, and lab techniques for CHEM 331.",
+      "price": 94.99,
+      "category": "Textbooks",
+      "course": "CHEM 331",
+      "thumbnail": "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=400&h=300&fit=crop&q=80"
     },
     {
       "id": 4,
-      "title": "OPPOF19",
-      "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
-      "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
-      "category": "smartphones",
-      "course": "COSC 455"
+      "title": "Psychology: Core Concepts (8th Ed.)",
+      "description": "Engaging introduction to psychological science covering perception, learning, memory, and social behavior.",
+      "price": 79.99,
+      "category": "Textbooks",
+      "course": "PSYC 101",
+      "thumbnail": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop&q=80"
     },
     {
       "id": 5,
-      "title": "Huawei P30",
-      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
-      "thumbnail": "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
-      "category": "smartphones",
-      "course": "COSC 455"
+      "title": "Business Law Today (11th Ed.)",
+      "description": "Covers contracts, torts, business ethics, and the legal environment of business. Required for LEGL 201.",
+      "price": 69.99,
+      "category": "Textbooks",
+      "course": "LEGL 201",
+      "thumbnail": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop&q=80"
     },
     {
       "id": 6,
-      "title": "MacBook Pro",
-      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 1749,
-      "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
-      "category": "smartphones",
-      "course": "COSC 455"
+      "title": "5-Subject Spiral Notebook",
+      "description": "College-ruled, 200 pages with pocket dividers. Great for organizing notes across multiple classes.",
+      "price": 12.99,
+      "category": "Stationery",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&h=300&fit=crop&q=80"
     },
     {
       "id": 7,
-      "title": "Samsung Galaxy Book",
-      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-      "price": 1499,
-      "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
-      "category": "smartphones",
-      "course": "COSC 455"
+      "title": "Mechanical Pencil Set (12 Pack)",
+      "description": "0.5mm mechanical pencils with extra lead refills and erasers. Perfect for exams and note-taking.",
+      "price": 8.99,
+      "category": "Stationery",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 8,
+      "title": "Highlighter Set (6 Colors)",
+      "description": "Chisel-tip highlighters in assorted colors. Ideal for textbook annotation and study guides.",
+      "price": 7.49,
+      "category": "Stationery",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 9,
+      "title": "Composition Notebooks (Pack of 3)",
+      "description": "Classic black-and-white composition notebooks, college-ruled, 100 pages each. A campus essential.",
+      "price": 9.99,
+      "category": "Stationery",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 10,
+      "title": "Sticky Notes Variety Pack (12 Pads)",
+      "description": "Assorted sizes and colors for reminders, to-do lists, and marking textbook pages.",
+      "price": 11.49,
+      "category": "Stationery",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 11,
+      "title": "TI-84 Plus Graphing Calculator",
+      "description": "The standard graphing calculator approved for SAT, ACT, and most Towson math and science courses.",
+      "price": 109.99,
+      "category": "Electronics",
+      "course": "MATH 273",
+      "thumbnail": "https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 12,
+      "title": "USB-C Hub 7-in-1",
+      "description": "Expands your laptop with HDMI, 3x USB-A, SD card, microSD, and USB-C PD charging port.",
+      "price": 34.99,
+      "category": "Electronics",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 13,
+      "title": "LED Desk Lamp with USB Charging Port",
+      "description": "Adjustable brightness and color temperature with a built-in USB port to charge your phone while you study.",
+      "price": 29.99,
+      "category": "Electronics",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 14,
+      "title": "Towson University Classic T-Shirt",
+      "description": "Soft 100% cotton tee featuring the Towson Tigers logo. Available in sizes S–XXL.",
+      "price": 24.99,
+      "category": "Apparel",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 15,
+      "title": "Towson Tigers Pullover Hoodie",
+      "description": "Cozy fleece hoodie with kangaroo pocket and embroidered Towson University crest. Campus staple.",
+      "price": 49.99,
+      "category": "Apparel",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 16,
+      "title": "Towson Tigers Snapback Cap",
+      "description": "Adjustable snapback with embroidered TU logo. One size fits most. Represent on campus.",
+      "price": 22.99,
+      "category": "Apparel",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 17,
+      "title": "Campus Laptop Backpack (30L)",
+      "description": "Water-resistant backpack with padded 15.6\" laptop sleeve, USB charging port, and multiple compartments.",
+      "price": 39.99,
+      "category": "Accessories",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 18,
+      "title": "Stainless Steel Water Bottle (32 oz)",
+      "description": "Double-walled insulated bottle keeps drinks cold 24 hrs or hot 12 hrs. Fits most cup holders.",
+      "price": 19.99,
+      "category": "Accessories",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 19,
+      "title": "Blue Light Blocking Glasses",
+      "description": "Lightweight frames that filter blue light from screens. Reduce eye strain during long study sessions.",
+      "price": 16.99,
+      "category": "Accessories",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 20,
+      "title": "Towson Long Sleeve Shirt",
+      "description": "Lightweight long-sleeve shirt with Towson University print across the chest. Perfect for cooler days.",
+      "price": 34.99,
+      "category": "Apparel",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 21,
+      "title": "Principles of Microeconomics (8th Ed.)",
+      "description": "Standard microeconomics text covering supply, demand, market structures, and consumer theory.",
+      "price": 72.99,
+      "category": "Textbooks",
+      "course": "ECON 201",
+      "thumbnail": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 22,
+      "title": "The Bedford Handbook (10th Ed.)",
+      "description": "Comprehensive writing and grammar reference used across many Towson English and writing courses.",
+      "price": 59.99,
+      "category": "Textbooks",
+      "course": "ENGL 102",
+      "thumbnail": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 23,
+      "title": "Anatomy & Physiology Textbook",
+      "description": "Full-color A&P textbook with lab manual supplement. Required for nursing and health science majors.",
+      "price": 99.99,
+      "category": "Textbooks",
+      "course": "BIOL 201",
+      "thumbnail": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 24,
+      "title": "Portable Laptop Stand (Adjustable)",
+      "description": "Foldable aluminum laptop stand with 6 height levels. Reduces neck strain during long study sessions.",
+      "price": 27.99,
+      "category": "Accessories",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 25,
+      "title": "Noise-Cancelling Earbuds",
+      "description": "Wireless earbuds with active noise cancellation and 24-hour battery. Great for studying in busy areas.",
+      "price": 49.99,
+      "category": "Electronics",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 26,
+      "title": "Mini Wireless Keyboard & Mouse Combo",
+      "description": "Compact Bluetooth keyboard and mouse. Perfect for dorm desk setups and presentations.",
+      "price": 32.99,
+      "category": "Electronics",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 27,
+      "title": "Towson Tigers Sweatpants",
+      "description": "Comfortable fleece sweatpants with TU logo on the leg. Perfect for dorm life and campus casual.",
+      "price": 39.99,
+      "category": "Apparel",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1562886812-41775a01195d?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 28,
+      "title": "Towson University Lanyard",
+      "description": "Durable nylon lanyard with TU logo. Holds your Onecard, keys, and USB drives.",
+      "price": 9.99,
+      "category": "Accessories",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1606189934846-a527add8a77b?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 29,
+      "title": "Index Cards (500 Pack)",
+      "description": "Ruled 3x5 index cards — great for flashcards, study guides, and note summaries.",
+      "price": 6.49,
+      "category": "Stationery",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 30,
+      "title": "Desk Organizer Caddy",
+      "description": "5-compartment desktop organizer for pens, scissors, sticky notes, and phone. Keeps your desk tidy.",
+      "price": 14.99,
+      "category": "Accessories",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 31,
+      "title": "Microwave-Safe Meal Prep Containers (5 Pack)",
+      "description": "Stackable BPA-free containers with lids. Essential for dorm meal prepping and leftovers.",
+      "price": 17.99,
+      "category": "Dorm Essentials",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1546552768-9e3a94b38a59?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 32,
+      "title": "Over-the-Door Hooks (6 Pack)",
+      "description": "Heavy-duty hooks that fit over any standard dorm door — hang towels, bags, and coats.",
+      "price": 11.99,
+      "category": "Dorm Essentials",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 33,
+      "title": "Bed Risers (Set of 4)",
+      "description": "Raise your dorm bed up to 5 inches to create extra storage space underneath.",
+      "price": 18.99,
+      "category": "Dorm Essentials",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 34,
+      "title": "Whiteout Correction Tape (4 Pack)",
+      "description": "Smooth correction tape for clean fixes on any paper. A must-have for handwritten work.",
+      "price": 5.99,
+      "category": "Stationery",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop&q=80"
+    },
+    {
+      "id": 35,
+      "title": "Towson University Mug",
+      "description": "Ceramic 14oz mug with TU logo. Perfect for coffee or tea during those early morning classes.",
+      "price": 14.99,
+      "category": "Accessories",
+      "course": null,
+      "thumbnail": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=300&fit=crop&q=80"
     }
   ]
 }

@@ -1,26 +1,135 @@
-/* This makes the AI icon stay in one spot on the screen */
+/* ── Towson brand tokens ── */
+:root {
+  --tu-orange:       #E87722;
+  --tu-orange-dark:  #c9650f;
+  --tu-orange-light: #f5a623;
+  --tu-orange-glow:  rgba(232, 119, 34, 0.30);
+  --tu-black:        #111111;
+  --tu-surface:      #1a1a1a;
+  --tu-card:         #222222;
+  --tu-border:       #2e2e2e;
+  --tu-text:         #f0f0f0;
+  --tu-muted:        #888888;
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  background-color: var(--tu-black);
+  color: var(--tu-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Bootstrap dark overrides ── */
+[data-bs-theme="dark"] {
+  --bs-primary:          var(--tu-orange);
+  --bs-primary-rgb:      232, 119, 34;
+  --bs-body-bg:          var(--tu-black);
+  --bs-body-color:       var(--tu-text);
+  --bs-card-bg:          var(--tu-card);
+  --bs-border-color:     var(--tu-border);
+  --bs-link-color:       var(--tu-orange);
+  --bs-link-hover-color: var(--tu-orange-light);
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.01em; }
+.fw-bold   { font-weight: 700 !important; }
+.fw-semibold { font-weight: 600 !important; }
+.navbar-brand { font-weight: 800; font-size: 1.3rem; letter-spacing: -0.02em; }
+
+/* ── Navbar ── */
+.navbar.bg-dark {
+  background: linear-gradient(90deg, var(--tu-black) 0%, #1c1008 100%) !important;
+  border-bottom: 2px solid var(--tu-orange);
+  box-shadow: 0 2px 16px rgba(232,119,34,0.15);
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--tu-orange) 0%, var(--tu-orange-dark) 100%) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 12px var(--tu-orange-glow);
+  transition: all 0.2s ease;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background: linear-gradient(135deg, var(--tu-orange-light) 0%, var(--tu-orange) 100%) !important;
+  box-shadow: 0 4px 20px var(--tu-orange-glow) !important;
+  transform: translateY(-1px);
+}
+.btn-outline-primary {
+  color: var(--tu-orange) !important;
+  border-color: var(--tu-orange) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease;
+}
+.btn-outline-primary:hover {
+  background: linear-gradient(135deg, var(--tu-orange) 0%, var(--tu-orange-dark) 100%) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--tu-orange-glow);
+}
+
+/* ── Cards ── */
+.card {
+  background-color: var(--tu-card) !important;
+  border-color: var(--tu-border) !important;
+  border-radius: 14px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.4) !important; }
+
+/* ── Form controls ── */
+.form-control, .form-select {
+  background-color: #2a2a2a !important;
+  border-color: var(--tu-border) !important;
+  color: var(--tu-text) !important;
+  border-radius: 10px !important;
+}
+.form-control:focus, .form-select:focus {
+  background-color: #2a2a2a !important;
+  border-color: var(--tu-orange) !important;
+  box-shadow: 0 0 0 3px var(--tu-orange-glow) !important;
+  color: var(--tu-text) !important;
+}
+.form-control::placeholder { color: var(--tu-muted) !important; }
+
+/* ── Text utilities ── */
+.text-primary  { color: var(--tu-orange) !important; }
+.text-muted    { color: var(--tu-muted)  !important; }
+a              { color: var(--tu-orange); }
+a:hover        { color: var(--tu-orange-light); }
+
+/* ── Badges ── */
+.badge.bg-primary  { background: var(--tu-orange) !important; }
+
+/* ── Tables ── */
+.table-dark { background-color: var(--tu-surface) !important; }
+
+/* ── AI float button ── */
 .ai-float {
-  position: fixed;   
-  bottom: 30px;      
-  right: 30px;       
-  z-index: 9999;     
-  
-  background-color: white; /* Give it a background so it's visible */
-  color: #4b54ff;          /* Bootstrap Blue */
-  padding: 12px;
-  border-radius: 50%;      /* Makes it a perfect circle */
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Adds a shadow */
-  
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  background: linear-gradient(135deg, var(--tu-black) 0%, #2a1500 100%);
+  color: var(--tu-orange);
+  padding: 14px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px var(--tu-orange-glow), 0 0 0 2px var(--tu-orange);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;   
-  transition: transform 0.2s ease-in-out;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .ai-float:hover {
-  transform: scale(1.1);   
-  color: #0056b3;
-
+  transform: scale(1.12);
+  color: var(--tu-orange-light);
+  box-shadow: 0 6px 28px var(--tu-orange-glow), 0 0 0 2px var(--tu-orange-light);
 }
-
