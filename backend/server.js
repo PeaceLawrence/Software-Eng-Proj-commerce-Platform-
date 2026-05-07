@@ -3,7 +3,9 @@ const express = require('express');
 const cors = require('cors');
 const aiRoutes = require('./src/routes/aiRoutes');
 const productRoutes = require('./src/routes/productRoutes');
+const authRoutes = require('./src/routes/authRoutes');
 const { createProductTable } = require('./src/models/Product');
+const { createUserTable } = require('./src/models/User');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -11,6 +13,7 @@ const PORT = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json());
 
+app.use('/api/auth', authRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/products', productRoutes);
 
@@ -25,6 +28,7 @@ app.use((err, req, res, next) => {
 
 const start = async () => {
   await createProductTable();
+  await createUserTable();
   console.log('Database ready');
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 };

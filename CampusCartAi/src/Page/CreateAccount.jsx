@@ -17,7 +17,7 @@ const CreateAccount = () => {
         setErrors(e => ({ ...e, [field]: "" }));
     };
 
-    const handleCreateAccount = (e) => {
+    const handleCreateAccount = async (e) => {
         e.preventDefault();
         const errs = {};
         if (!form.firstName.trim()) errs.firstName = "Required";
@@ -29,7 +29,7 @@ const CreateAccount = () => {
         if (Object.keys(errs).length) { setErrors(errs); return; }
 
         try {
-            const account = registerAccount({
+            const account = await registerAccount({
                 firstName: form.firstName.trim(),
                 lastName: form.lastName.trim(),
                 email: form.email.trim(),

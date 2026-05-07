@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m ' *)",
+      "Bash(curl -s http://localhost:5001/api/products)",
+      "Bash(curl -s -X POST http://localhost:5001/api/auth/register -H 'Content-Type: application/json' -d '{\"firstName\":\"Test\",\"lastName\":\"User\",\"email\":\"testuser@towson.edu\",\"onecardId\":\"900000001\",\"password\":\"secret123\"}')",
+      "Bash(python3 -m json.tool)",
+      "Bash(pkill -f \"node server.js\")",
+      "Bash(node -e \"require\\('dotenv'\\).config\\(\\); console.log\\('JWT_SECRET:', JSON.stringify\\(process.env.JWT_SECRET\\)\\);\")",
+      "Bash(curl -s -X PUT http://localhost:5001/api/auth/profile -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJpYXQiOjE3NzgxMjMxODIsImV4cCI6MTc3ODcyNzk4Mn0.D0tBtzd4qrfeWYWl2Y2GuBOXHA16AZz1QptlVeuQ3D4' -d '{\"firstName\":\"Updated\",\"lastName\":\"Name\"}')"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}

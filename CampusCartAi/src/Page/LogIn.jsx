@@ -11,11 +11,11 @@ const LogIn = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const handleLoginClick = (e) => {
+    const handleLoginClick = async (e) => {
         e.preventDefault();
         setError("");
         try {
-            const account = loginAccount(email, password);
+            const account = await loginAccount(email, password);
             setUser(account);
             navigate("/");
         } catch (err) {

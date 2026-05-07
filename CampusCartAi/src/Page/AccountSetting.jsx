@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import { AiOutlineShop, AiOutlineLogout, AiOutlineHistory, AiOutlineCreditCard, AiOutlineMessage, AiOutlineHeart } from "react-icons/ai";
 import { MdLibraryBooks } from "react-icons/md";
 import { MdManageAccounts, MdEdit, MdCheck, MdClose } from "react-icons/md";
-import { updateAccount } from "../accounts";
+import { updateAccount, clearToken } from "../accounts";
 
 const isTowsonEmail = (email) => /^[^@]+@(.+\.)?towson\.edu$/i.test(email.trim());
 
@@ -28,7 +28,7 @@ const Account = () => {
         setErrors(e => ({ ...e, [field]: "" }));
     };
 
-    const handleSave = (e) => {
+    const handleSave = async (e) => {
         e.preventDefault();
         const errs = {};
         if (!form.firstName.trim()) errs.firstName = "Required";
@@ -47,7 +47,7 @@ const Account = () => {
                 onecardId: form.onecardId.trim(),
                 ...(form.password ? { password: form.password } : {}),
             };
-            const updated = updateAccount(user.email, updates);
+            const updated = await updateAccount(user.email, updates);
             setUser(updated);
             setSaved(true);
             setEditing(false);
@@ -72,6 +72,7 @@ const Account = () => {
     };
 
     const handleLogout = () => {
+        clearToken();
         setUser(null);
         navigate("/register");
     };
